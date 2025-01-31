@@ -2648,8 +2648,8 @@ class Home(Screen):
         ax_progress = fig_progress.add_subplot(111)
         ax_progress.plot(x, y, marker="o")
         ax_progress.set_title("Progress Graph")
-        ax_progress.set_xlabel("X-axis")
-        ax_progress.set_ylabel("Y-axis")
+        # ax_progress.set_xlabel("X-axis")
+        # ax_progress.set_ylabel("Y-axis")
 
         # Remove the previous graph (if any)
         graph_box = self.ids.progress_graph
@@ -2680,8 +2680,8 @@ class Home(Screen):
         calories_graph = figure_progress.add_subplot(111)
         calories_graph.plot(dates, calories, marker="o")
         calories_graph.set_title("Calories Burn Over Time")
-        calories_graph.set_xlabel("Dates")
-        calories_graph.set_ylabel("Calories Burned")
+        # calories_graph.set_xlabel("Dates")
+        # calories_graph.set_ylabel("Calories Burned")
 
         # Remove any previous widgets in the `calories_graph` container
         calories_graph = self.ids.calories_graph
