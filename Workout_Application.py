@@ -862,7 +862,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Abs"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                               
@@ -891,7 +891,7 @@ ScreenManager:
                                 text:'Leg'
                                 color:'#ffffff'
                                 bold: True
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 pos_hint: {'center_y':0.2}
                 MDCard:
                     style: 'elevated'
@@ -916,7 +916,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Chest"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
@@ -943,7 +943,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Shoulder"
-                                font_size: '18dp'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -970,7 +970,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Back"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -997,7 +997,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Thigh"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                       
@@ -1024,7 +1024,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Arms"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                       
@@ -1051,7 +1051,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Biceps"
-                                font_size: '18dp'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -1078,7 +1078,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Neck"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
@@ -1151,7 +1151,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Abs"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                               
@@ -1180,7 +1180,7 @@ ScreenManager:
                                 text:'Leg'
                                 color:'#ffffff'
                                 bold: True
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 pos_hint: {'center_y':0.2}
                 MDCard:
                     style: 'elevated'
@@ -1205,7 +1205,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Chest"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
@@ -1232,7 +1232,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Shoulder"
-                                font_size: '18dp'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -1259,7 +1259,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Back"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -1286,7 +1286,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Thigh"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                       
@@ -1313,7 +1313,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Arms"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                       
@@ -1340,7 +1340,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Glutes"
-                                font_size: '18dp'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}                        
@@ -1367,7 +1367,7 @@ ScreenManager:
                             size_hint_y: 0.3
                             MDLabel:
                                 text: "Neck"
-                                font_style: 'H6'
+                                font_size: '15dp'
                                 bold: True
                                 color: '#ffffff'
                                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
