@@ -1,18 +1,23 @@
 import numpy as np
 import pandas
+from kivy.metrics import dp
 from kivy.properties import StringProperty
+from kivy.uix.modalview import ModalView
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivymd.app import MDApp
 from kivy.core.window import Window
 from kivy.lang import Builder
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDFlatButton
+from kivymd.uix.list import MDList, OneLineListItem
 from kivymd.uix.menu import MDDropdownMenu
 import requests
 from datetime import datetime
 import joblib
 from kivy_garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
 import matplotlib.pyplot as plt
+from kivymd.uix.scrollview import MDScrollView
 from matplotlib.figure import Figure
 from kivy.clock import Clock
 import time
@@ -2740,6 +2745,37 @@ class Workouts(Screen):
         app.calories_data['date'] = date
 
 
+class CustomDropdown(ModalView):
+    def __init__(self, items, callback, **kwargs):
+        super().__init__(**kwargs)
+        self.size_hint = (None, None)
+        self.auto_dismiss = True
+
+        # Dynamically set width based on longest text
+        longest_text = max(items, key=len)
+        estimated_width = dp(len(longest_text) * 10)
+        self.width = min(estimated_width, Window.width * 0.9)
+        self.height = dp(300)  # Fixed height with scrolling
+
+        layout = MDBoxLayout(orientation="vertical")
+        scroll = MDScrollView()
+        menu_list = MDList()
+
+        for exercise in items:
+            list_item = OneLineListItem(text=exercise)
+            list_item.bind(on_release=self.create_callback(exercise, callback))
+            menu_list.add_widget(list_item)
+
+        scroll.add_widget(menu_list)
+        layout.add_widget(scroll)
+        self.add_widget(layout)
+
+    @staticmethod
+    def create_callback(exercise, callback):
+        """Returns a lambda that correctly captures the exercise value."""
+        return lambda instance: callback(exercise)
+
+
 class Progress(Screen):
     def on_icon_release(self, screen_name):
         # Set transition effect
@@ -2754,42 +2790,27 @@ class Progress(Screen):
         self.bmi_calculation()
 
         self.menu = None  # Prevent reinitialization
-        # Prepare the dropdown menu items
-        menu_items = [
-            {"text": "Body Weight", "on_release": lambda x="Body Weight": self.set_exercise(x)},
-            {"text": "BodyWeight with Endurance",
-             "on_release": lambda x="BodyWeight with Endurance": self.set_exercise(x)},
-            {"text": "Cardio", "on_release": lambda x="Cardio": self.set_exercise(x)},
-            {"text": "Cardio with Functional", "on_release": lambda x="Cardio with Functional": self.set_exercise(x)},
-            {"text": "Endurance Training", "on_release": lambda x="Endurance Training": self.set_exercise(x)},
-            {"text": "Endurance with Strength", "on_release": lambda x="Endurance with Strength": self.set_exercise(x)},
-            {"text": "Heavy BodyWeight", "on_release": lambda x="Heavy BodyWeight": self.set_exercise(x)},
-            {"text": "Heavy Cardio Training", "on_release": lambda x="Heavy Cardio Training": self.set_exercise(x)},
-            {"text": "Heavy Endurance Training",
-             "on_release": lambda x="Heavy Endurance Training": self.set_exercise(x)},
-            {"text": "High Intensity Cardio", "on_release": lambda x="High Intensity Cardio": self.set_exercise(x)},
-            {"text": "Sports Specific Training",
-             "on_release": lambda x="Sports Specific Training": self.set_exercise(x)},
-            {"text": "Circuit Training", "on_release": lambda x="Circuit Training": self.set_exercise(x)},
-            {"text": "High Intensity Cardio with Circuit",
-             "on_release": lambda x="High Intensity Cardio with Circuit": self.set_exercise(x)},
-        ]
-
-        # Convert fixed width (e.g., 300px) into width_mult
-        # desired_width_px = 500
-        # item_width_px = 56  # Default item width in dp
-        # width_multi = desired_width_px / item_width_px
-
-        self.menu = MDDropdownMenu(
-            caller=self.ids.desired_exercise,
-            items=menu_items,
-            width_mult=300
-        )
 
     def open_menu(self):
-        # Open the dropdown menu
-        if self.menu:
-            self.menu.open()
+        # Prepare the dropdown menu items
+        menu_items = [
+            "Body Weight",
+            "BodyWeight with Endurance",
+            "Cardio",
+            "Cardio with Functional",
+            "Endurance Training",
+            "Endurance with Strength",
+            "Heavy BodyWeight",
+            "Heavy Cardio Training",
+            "Heavy Endurance Training",
+            "High Intensity Cardio",
+            "Sports Specific Training",
+            "Circuit Training",
+            "High Intensity Cardio With Circuit"
+        ]
+
+        self.menu = CustomDropdown(items=menu_items, callback=self.set_exercise)
+        self.menu.open()
 
     def set_exercise(self, exercise):
         # Set the selected gender in the text field
